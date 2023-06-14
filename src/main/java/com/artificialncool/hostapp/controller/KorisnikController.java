@@ -34,9 +34,15 @@ public class KorisnikController {
         }
     }
 
-    @PostMapping
+    @PostMapping(value = "/fill-up")
     public ResponseEntity<Void> createKorisnici() {
         korisnikService.createKorisnici();
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping()
+    public ResponseEntity<Korisnik> createNew(@RequestBody Korisnik korisnik) {
+        Korisnik saved = korisnikService.createNew(korisnik);
+        return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 }
