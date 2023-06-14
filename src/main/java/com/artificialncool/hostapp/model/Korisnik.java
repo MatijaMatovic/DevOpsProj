@@ -1,9 +1,12 @@
 package com.artificialncool.hostapp.model;
 
 import com.artificialncool.hostapp.model.enums.KorisnickaUloga;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import lombok.*;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,7 +18,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("korisnici")
 public class Korisnik {
     @Id
-    private Long ID;
+    private ObjectId id;
 
     @Indexed(unique = true)
     private String username;

@@ -27,6 +27,11 @@ public class KorisnikService {
                 .orElseThrow(() -> new EntityNotFoundException("nema"));
     }
 
+    public Korisnik createNew(Korisnik korisnik) {
+        return korisnikRepository
+                .save(korisnik);
+    }
+
     public void createKorisnici() {
         korisnikRepository.save(Korisnik.builder()
                 .ime("Petar")
